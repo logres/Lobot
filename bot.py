@@ -24,7 +24,7 @@ app = nonebot.get_asgi()
 driver = nonebot.get_driver()
 driver.register_adapter(ONEBOT_V11Adapter)
 driver.register_adapter(ONEBOT_V12Adapter)
-driver.register_adapter(CONSOLEAdapter)
+# driver.register_adapter(CONSOLEAdapter)
 
 # nonebot.load_builtin_plugins("echo")
 nonebot.load_builtin_plugins("single_session")
