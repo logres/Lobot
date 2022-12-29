@@ -1,0 +1,6 @@
+nb-cli
+nonebot-plugin-gocqhttp
+nonebot-plugin-what2eat
+nonebot-plugin-weather-lite
+nonebot-plugin-ygo
+nonebot-plugin-status
