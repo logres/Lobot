@@ -1,25 +1,25 @@
-FROM python:3.9 as requirements-stage
+# FROM python:3.9 as requirements-stage
 
-WORKDIR /tmp
+# WORKDIR /tmp
 
-COPY ./pyproject.toml ./poetry.lock* /tmp/
+# COPY ./pyproject.toml ./poetry.lock* /tmp/
 
-RUN curl -sSL https://install.python-poetry.org -o install-poetry.py
+# RUN curl -sSL https://install.python-poetry.org -o install-poetry.py
 
-RUN python install-poetry.py --yes
+# RUN python install-poetry.py --yes
 
-ENV PATH="${PATH}:/root/.local/bin"
+# ENV PATH="${PATH}:/root/.local/bin"
 
-RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
+# RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
 
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
 
 WORKDIR /app
 
-COPY --from=requirements-stage /tmp/requirements.txt /app/requirements.txt
+# COPY --from=requirements-stage /tmp/requirements.txt /app/requirements.txt
+
+COPY ./ /app/
 
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 RUN rm requirements.txt
-
-COPY ./ /app/
