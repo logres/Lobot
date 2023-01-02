@@ -13,7 +13,7 @@ nonebot2 = "^2.0.0-beta.1"
 nb-cli = "^0.6.0"
 
 [tool.nonebot]
-plugins = ["nonebot_plugin_status", "nonebot_plugin_gocqhttp", "nonebot_plugin_what2eat", "nonebot_plugin_weather_lite", "nonebot_plugin_ygo"]
+plugins = ["nonebot_plugin_status", "nonebot_plugin_gocqhttp", "nonebot_plugin_what2eat", "nonebot_plugin_weather_lite", "nonebot_plugin_tts_gal"]
 plugin_dirs = ["src/plugins"]
 
 [build-system]
