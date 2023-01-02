@@ -27,3 +27,5 @@ COPY sources.list /etc/apt/
 RUN apt-get clean && apt-get update
 
 RUN apt-get install -y cmake && apt-get install -y ffmpeg && pip install --no-cache-dir --upgrade -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+COPY ./open_jtalk_dic_utf_8-1.11 /usr/local/lib/python3.9/site-packages/pyopenjtalk/open_jtalk_dic_utf_8-1.11
