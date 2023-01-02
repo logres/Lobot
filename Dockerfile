@@ -20,6 +20,10 @@ WORKDIR /app
 
 COPY ./ /app/
 
-RUN pip install --no-cache-dir --upgrade -r requirements.txt
+# RUN sed -i "s/deb.debian.org/mirrors.aliyun.com/g" /etc/apt/sources.list && sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list && sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list &&apt-get clean && apt-get update
 
-RUN rm requirements.txt
+COPY sources.list /etc/apt/
+
+RUN apt-get clean && apt-get update
+
+RUN apt-get install -y cmake && apt-get install -y ffmpeg && pip install --no-cache-dir --upgrade -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
